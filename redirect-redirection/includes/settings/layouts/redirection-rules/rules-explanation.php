@@ -2,6 +2,14 @@
 if (!defined("ABSPATH")) {
     exit();
 }
+
+$regexHelp = sprintf(
+    '%1$s<a href="%2$s" target="_blank" class="ask-us">%3$s</a>%4$s',
+    __("Need help with a RegEx or a Redirection? Ask us "),
+    "https://wordpress.org/support/plugin/redirect-redirection/",
+    __("here", "redirect-redirection"),
+    __("!", "redirect-redirection")
+);
 ?>
 <div class="header__popup header__popup--hidden header-popup">
     <div class="header-popup__heading">
@@ -107,6 +115,10 @@ if (!defined("ABSPATH")) {
         </div>
     </div>
     <div class="header-popup__footer">
+        <div class="regex-help">
+            <span class="faq-icon">?</span>
+            <?php echo $regexHelp; ?>
+        </div>
         <button class="header-popup__close-btn ir-header-popup-close">
             <?php _e( "Close", "redirect-redirection" ); ?>
         </button>

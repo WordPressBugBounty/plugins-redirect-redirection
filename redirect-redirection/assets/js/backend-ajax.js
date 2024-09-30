@@ -1516,7 +1516,6 @@ jQuery(document).ready(function ($) {
     $(document).on("change", ".redirect-content .ir-redirection_logs_delete", function (e) {
         e.preventDefault();
         const el = $(this);
-        const parent = el.parents(".custom-dropdown");
         const logDelete = $.trim(el.val());
 
         if (el.hasClass("ir-processed")) {
@@ -1526,7 +1525,6 @@ jQuery(document).ready(function ($) {
         if (logDelete.length) {
             el.addClass("ir-processed");
             const cronLogDeleteOption = logDelete.toLowerCase();
-            const cronLogDeleteOptionId = $(".custom-dropdown-toggle__text", parent).attr("data-selected-dropdown-item-id");
 
             // set selected id for initialization after page reload
             //Cookies.set("log_auto_delete", logAutoDelete, {expires: 36500});
@@ -1534,7 +1532,6 @@ jQuery(document).ready(function ($) {
             const data = new FormData();
             data.append("action", "irCronLogDeleteOption");
             data.append("cron_log_delete_option", cronLogDeleteOption);
-            data.append("cron_log_delete_option_id", cronLogDeleteOptionId);
 
             const ajax = irGetAjax(data);
 

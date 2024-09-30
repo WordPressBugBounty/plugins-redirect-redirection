@@ -26,7 +26,10 @@ if (!defined("ABSPATH")) {
                         IRRPHelper::customDropdown("criteria_value_dd", IrrPRedirection::$PERMALINK_STRUCTURE_VALUES, $selected);
                         ?>
                     </div>
-                    <input class="input-group__input flex-grow-1 ir-criteria-value ir-redirect-from ir-reload-clear" type="text" name="criteria_value" placeholder="<?php _e("Enter the string", "redirect-redirection"); ?>">
+                    <div class="input-wrapper">
+                        <input class="input-group__input flex-grow-1 ir-criteria-value ir-redirect-from ir-reload-clear" type="text" name="criteria_value" placeholder="<?php _e("Enter the string", "redirect-redirection"); ?>">
+                        <div class="regex-help">Need help with Regex? <a href="https://wordpress.org/support/plugin/redirect-redirection/" target="_blank" class="ask-us">Ask us</a></div>
+                    </div>
                 </div>
             </div>
             <div class="header__arrow-svg">

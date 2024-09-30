@@ -359,6 +359,11 @@ jQuery(document).ready(function ($) {
                 }
             }
         });
+        obj['ignore_trailing_slashes'] = form.find("input[name=ignore_trailing_slashes]").is(":checked") ? "1" : "0";
+        obj['ignore_parameters'] = form.find("input[name=ignore_parameters]").is(":checked") ? "1" : "0";
+        obj['ignore_case'] = form.find("input[name=ignore_case]").is(":checked") ? "1" : "0";
+        obj['pass_on_parameters'] = form.find("input[name=pass_on_parameters]").is(":checked") ? "1" : "0";
+
 
         return obj;
     }
@@ -844,6 +849,16 @@ jQuery(document).ready(function ($) {
         if (!confirm(irEventsJS.confirm_message)) {
             e.preventDefault();
             return;
+        }
+    });
+
+    $(document).on("change", ".ir-custom-dropdown-value.ir-criteria", function (e) {
+        const regexHelpCriteria = document.querySelector('.ir-criterias .regex-help');
+
+        if (regexHelpCriteria.classList.contains('show') && this.value !== 'regex-match' && this.value != '') {
+            regexHelpCriteria.classList.remove('show');
+        } else if (!regexHelpCriteria.classList.contains('show') && this.value === 'regex-match') {
+            regexHelpCriteria.classList.add('show');
         }
     });
 

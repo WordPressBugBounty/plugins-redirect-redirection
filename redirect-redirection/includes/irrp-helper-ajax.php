@@ -1041,12 +1041,26 @@ class IRRPHelperAjax implements IRRPConstants {
 
         $response = ["status" => "", "message" => ""];
         $cronLogDelete = strtolower(trim(filter_input(INPUT_POST, "cron_log_delete_option", FILTER_SANITIZE_STRING)));
-        $cronLogDeleteOptionId = (int) filter_input(INPUT_POST, "cron_log_delete_option_id", FILTER_SANITIZE_NUMBER_INT);
 
-        if (empty($cronLogDelete) || !is_numeric($cronLogDeleteOptionId)) {
+        if (empty($cronLogDelete)) {
             $response["status"] = "error";
             $response["message"] = esc_html__("The auto delete value cannot be empty", "redirect-redirection");
             wp_send_json_error($response);
+        }
+        switch ($cronLogDelete) {
+            case "never":
+                $cronLogDeleteOptionId = 0;
+                break;
+            case "older-than-a-week":
+                $cronLogDeleteOptionId = 1;
+                break;
+            case "older-than-a-month":
+                $cronLogDeleteOptionId = 2;
+                break;
+            default:
+                $response["status"] = "error";
+                $response["message"] = esc_html__("The auto delete value is not valid", "redirect-redirection");
+                wp_send_json_error($response);
         }
 
         update_option(self::OPTIONS_CRON_LOG_DELETE, ["option" => $cronLogDelete, "option_id" => $cronLogDeleteOptionId], "no");

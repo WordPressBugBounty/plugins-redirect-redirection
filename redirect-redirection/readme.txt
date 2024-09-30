@@ -2,8 +2,8 @@
 Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
-Tested up to: 6.6
-Stable tag: 1.2.3
+Tested up to: 6.6.2
+Stable tag: 1.2.4
 License: GPLv3
 Requires PHP: 5.6
 
@@ -94,6 +94,12 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 5. HTTP codes explanation
 
 == Changelog ==
+
+= 1.2.4 =
+* Tested with WordPress 6.6.2-RC1
+* Add "ask us" for regex on rules explanations
+* Fixed delete logs option where the updated value wasn't visible automatically
+* Slight UI improvements
 
 = 1.2.3 =
 * Tested with WordPress 6.6
@@ -244,9 +250,8 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 
 == Upgrade Notice ==
 
-= 1.2.3 =
-* Tested with WordPress 6.6
-* Minor performance improvements 
-* Improvements for PHP 8 utilization
-* Adjusted domain validation 
-* Added pagination with "Show more" in logs
+= 1.2.4 =
+* Tested with WordPress 6.6.2-RC1
+* Add "ask us" for regex on rules explanations
+* Fixed delete logs option where the updated value wasn't visible automatically
+* Slight UI improvements
