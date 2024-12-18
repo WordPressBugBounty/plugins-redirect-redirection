@@ -2,8 +2,8 @@
 Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
-Tested up to: 6.6.2
-Stable tag: 1.2.4
+Tested up to: 6.7.1
+Stable tag: 1.2.5
 License: GPLv3
 Requires PHP: 5.6
 
@@ -94,6 +94,11 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 5. HTTP codes explanation
 
 == Changelog ==
+
+= 1.2.5 =
+* Tested with WordPress 6.7.1
+* Fixed parameters being cut off after an encoded slash.
+* Fixed loading translations too early.
 
 = 1.2.4 =
 * Tested with WordPress 6.6.2-RC1
@@ -202,56 +207,11 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 * Removed unnecessary files from codebase
 * Adjusted redirection, it won't redirect twice before destination site
 
-= 1.0.9 =
-* Fixed issues with version 1.0.8 where template redirection support was required
-
-= 1.0.8 =
-* Fixed local redirect loops (e.g. homepage -> post)
-* Adjusted our URL validator
-* Changed hook of redirect execution
-* Removed unwanted error_logging
-* Tested with WordPress 6.0.1
-
-= 1.0.7 =
-* Tested with WordPress Beta 6.0
-* Improved database management
-* Added new notifications and notices
-* Allowed redirections inside wp-admin
-* Added all-urls rule for redirection
-* Added support for PHP 5.6 (older sites)
-* Added carrousel
-
-= 1.0.6 =
-* Added Redirection & 404 Logs feature; fixed an issue with redirection to another website and the issue with the set cookie
-* Tested with PHP 8.0 and 8.1
-* Tested with WordPress 5.9
-
-= 1.0.5 =
-* Added redirection by browser language
-* Fixed bugs with language detection
-
-= 1.0.4 =
-* Added redirection rule 404s to Random Similar Post
-
-= 1.0.3 =
-* Added redirection rule 404s to Specific URL
-
-= 1.0.2 =
-* Make plugin translatable ready
-* Tested up to WordPress 5.8
-
-= 1.0.1 =
-* Fixed mb functions on servers without mbstring extenstion
-* Added auto redirection on activation
-* Added screenshots
-
-= 1.0.0 =
-* Initial release
+Changelogs stripped due to character limitation.
 
 == Upgrade Notice ==
 
-= 1.2.4 =
-* Tested with WordPress 6.6.2-RC1
-* Add "ask us" for regex on rules explanations
-* Fixed delete logs option where the updated value wasn't visible automatically
-* Slight UI improvements
+= 1.2.5 =
+* Tested with WordPress 6.7.1
+* Fixed parameters being cut off after an encoded slash.
+* Fixed loading translations too early.

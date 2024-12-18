@@ -828,8 +828,12 @@ class IRRPHelper implements IRRPConstants {
 
         $response["to"] = add_query_arg($headers, $response["to"]);
         
-        $response["to"] = $this->manualRtrim($response["to"], '%2F');
-        $response["to"] = $this->manualRtrim($response["to"], '%2f');
+        if (substr($response["to"], -3) === "%2F") {
+            $response["to"] = substr($response["to"], 0, -3);
+        }
+        if (substr($response["to"], -3) === "%2f") {
+            $response["to"] = substr($response["to"], 0, -3);
+        }
 
         wp_redirect($response["to"], $response["redirect_code"]);
         exit();
