@@ -28,6 +28,7 @@ interface IRRPConstants {
     const META_KEY_CRITERIAS                = "criterias";
     const META_KEY_ACTION                   = "action";
     const META_KEY_TABLES_CREATED           = "irrp_tables_created";
+    const META_KEY_URL_LENGTH_UPDATED       = "irrp_url_length_updated";
     
     // LOG CODES
     const LOGCODE_IS_404_NO_REDIRECT       = "is_404_no_redirect";

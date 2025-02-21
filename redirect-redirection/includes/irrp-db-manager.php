@@ -20,6 +20,7 @@ class IRRPDBManager implements IRRPConstants {
 
         // Run checks only when initialised.
         $this->checkTablesCreated();
+        $this->checkURLLengthUpdated();
     }
 
     /**
@@ -31,6 +32,34 @@ class IRRPDBManager implements IRRPConstants {
         }
         // Create the tables.
         $this->createTables(is_multisite());
+    }
+
+    /**
+     * Checks if the URL length is updated.
+     * @since 1.2.6
+     */
+    public function checkURLLengthUpdated() {
+        if ('yes' === get_option(self::META_KEY_URL_LENGTH_UPDATED, '')) { // URL length is already updated.
+            return;
+        }
+        // Update the URL length.
+        $this->updateURLLength();
+    }
+
+    /**
+     * Update the URL length from 255 to 1000.
+     * @since 1.2.6
+     */
+    public function updateURLLength() {
+        global $wpdb;
+        $table = esc_sql($this->tblRedirects);
+        $query = "
+            ALTER TABLE `$table`
+            MODIFY `from` VARCHAR(1000) DEFAULT NULL,
+            MODIFY `to` VARCHAR(1000) NOT NULL
+        ";
+        $wpdb->query($query);
+        update_option(self::META_KEY_URL_LENGTH_UPDATED, 'yes', false);
     }
 
     /**

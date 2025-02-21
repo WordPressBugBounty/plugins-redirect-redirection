@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Redirect Redirection
  * Description: Create specific URL redirections and redirection rules super-easily on a beautiful, user-friendly interface of the Redirect Redirection plugin.
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author: Inisev
  * Author URI: https://inisev.com
  * Plugin URI: https://redirection.pro
@@ -21,7 +21,7 @@ define("IRRP_DIR_NAME", basename(IRRP_DIR_PATH));
 define("IRRP_CRON_DELETE_LOGS", "irrp_cron_delete_logs");
 define("IRRP_CRON_DELETE_LOGS_RECURRENCE_KEY", "irrp_custom_interval");
 define("IRRP_CRON_DELETE_LOGS_RECURRENCE", 60);
-define("IRRP_PLUGIN_VERSION", "1.2.5");
+define("IRRP_PLUGIN_VERSION", "1.2.6");
 
 /**
  * Create tables on activation.

@@ -65,7 +65,9 @@ class IRRPHelperAjax implements IRRPConstants {
         $redirectionType = self::TYPE_REDIRECTION;
         $selected = empty($_POST["selected"]) ? [] : array_map("intval", (json_decode(stripslashes(trim($_POST["selected"])))));
         $data = empty($_POST["data"]) ? [] : IRRPHelper::sanitizeData(json_decode(stripslashes($_POST["data"]), ARRAY_A));
-        $data = array_filter($data); // Filters empty strings
+        $data = array_filter($data, function($value) {
+            return $value !== "";
+        });
         $settings = array_replace_recursive($this->settings->getDefaultSettings(), $data);
 
         if (!is_array($selected)) {

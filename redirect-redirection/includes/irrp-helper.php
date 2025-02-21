@@ -378,10 +378,8 @@ class IRRPHelper implements IRRPConstants {
                     parse_str($matchQuery, $matchQueryArr);
                     parse_str($requestQuery, $requestQueryArr);
 
-                    $intersectKeys = array_intersect_key($matchQueryArr, $requestQueryArr);
-
                     if ($matchQuery && $requestQuery) {
-                        if (count($intersectKeys) !== count($matchQueryArr)) {
+                        if ($matchQueryArr != $requestQueryArr) {
                             $continueCheck = false;
                         }
                     } else {
