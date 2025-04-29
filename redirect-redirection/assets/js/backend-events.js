@@ -901,4 +901,23 @@ jQuery(document).ready(function ($) {
 
     })();
 
+    function initializeTooltips() {
+        $('.ir-instant-edit-from, .ir-instant-edit-to').tooltipster({
+            theme: 'tooltipster-sidetip',
+            animation: 'fade',
+            delay: 200,
+            trigger: 'hover',
+            interactive: true, 
+            functionFormat: function(instance, helper, content) {
+                return $(helper.origin).val();
+            }
+        });
+    }
+
+    initializeTooltips();
+
+    $(document).ajaxComplete(function() {
+        initializeTooltips();
+    });
+
 });

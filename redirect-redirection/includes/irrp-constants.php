@@ -11,7 +11,7 @@ interface IRRPConstants {
     const OPTIONS_CRON_LOG_DELETE           = "irrp_cron_log_delete";    
     const OPTIONS_LOGS_STATUS               = "irrp_logs_status"; 
     const OPTIONS_AUTO_REDIRECTS            = "irrp_auto_redirects";
-    const PER_PAGE_REDIRECTIONS             = 10;
+    const PER_PAGE_REDIRECTIONS             = 30;
     const PER_PAGE_LOGS                     = 100;
     
     // TABLE NAMES

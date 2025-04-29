@@ -37,7 +37,7 @@ $id = (int) $id;
         <span class="flex-table__row-column row-column d-block">
             <span class="row-column__input-label d-lg-none"><?php _e( "Redirect from", "redirect-redirection" ); ?></span>
             <?php if ( $redirectionType === self::TYPE_REDIRECTION ) { ?>
-                <div class="row-column__input-group table-input-group"><!-- add class "custom-tooltip" for tooltip -->
+                <div class="row-column__input-group table-input-group">
                     <input class="flex-table__input table-input-group__input ir-instant-edit-redirect ir-instant-edit-from ir-instant-edit-from-<?php echo $id; ?> ir-scroll-to-right"
                            type="text"
                            value="<?php esc_attr_e( $from ); ?>" <?php esc_attr_e( $fromDisabled ); ?> title="<?php esc_html_e( $fromTitle ); ?>"
@@ -51,8 +51,6 @@ $id = (int) $id;
 		            $fromTitle = empty( IrrPRedirection::$CRITERIAS[ $fromIndex ]["text"] ) ? "" : IrrPRedirection::$CRITERIAS[ $fromIndex ]["text"];
 		            $style     = ( $key > 0 ) ? "margin-top:3px;" : "";
 		            ?>
-                    <!-- custom style maybe needs changes!! -->
-                    <!-- add class "custom-tooltip" for tooltip -->
                     <div class="row-column__input-group table-input-group" style="<?php esc_html_e( $style ); ?>;">
                         <input class="flex-table__input table-input-group__input ir-instant-edit-redirect ir-instant-edit-from ir-instant-edit-from-<?php echo $id; ?> ir-scroll-to-right"
                                type="text" value="<?php esc_attr_e( $from ); ?>" <?php esc_attr_e( $fromDisabled ); ?> title="<?php esc_html_e( $fromTitle ); ?>"
@@ -75,7 +73,7 @@ $id = (int) $id;
         </span>
         <span class="flex-table__row-column row-column d-block">
             <span class="row-column__input-label d-lg-none"><?php _e( "To a specific URL", "redirect-redirection" ); ?></span>
-            <div class="row-column__input-group table-input-group"><!-- add class "custom-tooltip" for tooltip -->
+            <div class="row-column__input-group table-input-group">
                 <?php if ( isset( $metas["action"]["name"] ) ) { ?>
 	                <?php if ( $metas["action"]["name"] != 'urls-with-removed-string' ) { ?>
                         <input class="flex-table__input table-input-group__input ir-instant-edit-redirect ir-instant-edit-to ir-instant-edit-to-<?php echo $id; ?> <?php echo ( $to ) ? 'ir-with-data' : 'ir-without-data'; ?> ir-scroll-to-right"

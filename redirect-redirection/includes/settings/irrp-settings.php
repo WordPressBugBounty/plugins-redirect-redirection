@@ -200,6 +200,9 @@ class IRRPSettings implements IRRPConstants {
             wp_register_style("ir-default-settings-css", plugins_url(IRRP_DIR_NAME . "/assets/css/components/default-settings-modal.css"), [], IRRP_PLUGIN_VERSION);
             wp_enqueue_style("ir-default-settings-css");
 
+            wp_register_style("ir-tooltip-css", plugins_url(IRRP_DIR_NAME . "/assets/css/components/tooltip.min.css"), [], IRRP_PLUGIN_VERSION);
+            wp_enqueue_style("ir-tooltip-css");
+
             wp_register_style("ir-dropdown-js-css", plugins_url(IRRP_DIR_NAME . "/assets/css/components/dropdown-with-js.css"), [], IRRP_PLUGIN_VERSION);
             wp_enqueue_style("ir-dropdown-js-css");
 
@@ -211,6 +214,10 @@ class IRRPSettings implements IRRPConstants {
 
             wp_register_script("ir-notification-js", plugins_url(IRRP_DIR_NAME . "/assets/css/components/notification.js"), ["jquery"], IRRP_PLUGIN_VERSION);
             wp_enqueue_script("ir-notification-js");
+
+            // Enqueue Tooltip JS
+            wp_register_script("ir-tooltip-js", plugins_url(IRRP_DIR_NAME . "/assets/js/tooltip.min.js"), ["jquery"], IRRP_PLUGIN_VERSION);
+            wp_enqueue_script("ir-tooltip-js");
 
             wp_register_script("ir-backend-events-js", plugins_url(IRRP_DIR_NAME . "/assets/js/backend-events.js"), ["jquery"], IRRP_PLUGIN_VERSION);
             wp_enqueue_script("ir-backend-events-js");
