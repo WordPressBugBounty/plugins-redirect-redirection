@@ -3,7 +3,7 @@ Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
 Tested up to: 6.9.1
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv3
 Requires PHP: 5.6
 
@@ -95,6 +95,13 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 
 == Changelog ==
 
+= 1.2.9 =
+
+* Excluded preview links from URL checks to avoid triggering banner logic on preview pages.
+* Added support for `important` notification type and updated plain structure alerts to use it.
+* Improved banner dismiss functionality and URL matching logic for better accuracy.
+* Adjusted URL matching logic to correctly handle additional characters in URLs.
+
 = 1.2.8 =
 * Tested up to WordPress 6.9.1
 * Added “URLs with new string” option for the “Starts with” rule.
@@ -179,15 +186,6 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 * Updated opt-in module
 * Improved RegExp redirections 
 * Adjusted few typos in notifications
-* Added more detailed notifications 
-* Prevented possibility of two 'is-404' redirections
-* Prevented possibility of two 'all-urls' redirections
-* Updated Carousel module
-
-= 1.1.6 =
-* Added custom permission for plugin access: redirect_redirection_admin
-* Changed way how advanced options section works
-* Improved user experience in terms of adding new rules and editing them
 * [... and more ...]
 
 = previous =
@@ -195,11 +193,8 @@ Old changelog has been removed due to WordPress limitation of 5000 characters.
 
 == Upgrade Notice ==
 
-= 1.2.8 =
-* Tested up to WordPress 6.9.1
-* Added “URLs with new string” option for the “Starts with” rule.
-* Improved UI/UX for better responsiveness and overall user experience.
-* Tested with WordPress WordPress 6.9.
-* Fixed minor bugs and stability issues.
-* Resolved an N+1 query issue, significantly improving performance on large sites with many redirections.
-* Disabled the “Ignore parameters” option for plain permalink structures to avoid confusion.
+= 1.2.9 =
+* Excluded preview links from URL checks to avoid triggering banner logic on preview pages.
+* Added support for `important` notification type and updated plain structure alerts to use it.
+* Improved banner dismiss functionality and URL matching logic for better accuracy.
+* Adjusted URL matching logic to correctly handle additional characters in URLs.

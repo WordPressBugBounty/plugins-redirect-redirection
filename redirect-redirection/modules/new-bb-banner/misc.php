@@ -193,7 +193,7 @@
           $site_url = str_replace('https://', '', $site_url);
           $site_url = str_replace('www.', '', $site_url);
 
-          if (preg_match('/^[a]/i', $site_url) && $elapsed_time > $this->showBannerAfter) {
+          if (preg_match('/^[a-k]/i', $site_url) && $elapsed_time > $this->showBannerAfter) {
             return true;
           }
 

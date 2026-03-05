@@ -1717,7 +1717,7 @@ jQuery(document).ready(function ($) {
 
     function runPlainTextNotificationsIfAny() {
         if (irAjaxJS.plain_structure_notification && irAjaxJS.plain_structure_notification.length) {
-            notify({autoCloseAfter: 360000, type: 'error', heading: "Error", text: irAjaxJS.plain_structure_notification});
+            notify({autoCloseAfter: 360000, type: 'important', heading: "Important", text: irAjaxJS.plain_structure_notification});
             const data = new FormData();
             const form = $(".ir-default-settings-form");
             if ( form.find("input[name=ignore_parameters]").is(":checked") ) form.find("input[name=ignore_parameters]").trigger("click");

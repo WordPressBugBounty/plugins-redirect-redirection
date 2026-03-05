@@ -1379,11 +1379,12 @@ class IRRPHelper implements IRRPConstants {
     public function isExcludedUrl($url) {
         $wpAdminURL = untrailingslashit(admin_url());
         $wpLoginURL = untrailingslashit(wp_login_url());
+        $isPreviewLink = strpos($url, "preview=true") !== false;
 
         $url = strtolower($url);
         $url = str_replace("%2f", "/", $url);
         
-        return (strpos($url, $wpAdminURL) !== false) || (strpos($url, $wpLoginURL) !== false);
+        return (strpos($url, $wpAdminURL) !== false) || (strpos($url, $wpLoginURL) !== false) || $isPreviewLink;
     }
 
     public function manualRtrim($string, $charlist) {
