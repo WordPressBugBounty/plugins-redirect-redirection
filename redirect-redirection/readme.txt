@@ -2,8 +2,8 @@
 Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
-Tested up to: 6.9.1
-Stable tag: 1.2.9
+Tested up to: 6.9.4
+Stable tag: 1.3.0
 License: GPLv3
 Requires PHP: 5.6
 
@@ -94,6 +94,12 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 5. HTTP codes explanation
 
 == Changelog ==
+
+= 1.3.0 =
+
+* Tested up to WordPress 6.9.4
+* [FIX] Resolve deprecation warnings by casting values to string
+* [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs
 
 = 1.2.9 =
 
@@ -193,8 +199,7 @@ Old changelog has been removed due to WordPress limitation of 5000 characters.
 
 == Upgrade Notice ==
 
-= 1.2.9 =
-* Excluded preview links from URL checks to avoid triggering banner logic on preview pages.
-* Added support for `important` notification type and updated plain structure alerts to use it.
-* Improved banner dismiss functionality and URL matching logic for better accuracy.
-* Adjusted URL matching logic to correctly handle additional characters in URLs.
+= 1.3.0 =
+
+* [FIX] Resolve deprecation warnings by casting values to string
+* [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs

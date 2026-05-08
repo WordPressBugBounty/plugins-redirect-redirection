@@ -381,14 +381,14 @@ class IRRPHelper implements IRRPConstants {
                         $response["redirect_metas"] = $metas;
                         $response["to"] = $redirect["to"];
 
-                        $matchQuery = parse_url($redirect["from"], PHP_URL_QUERY);
+                        $matchQuery = (string) parse_url($redirect["from"], PHP_URL_QUERY);
                         $criterias = $metas[self::META_KEY_CRITERIAS];
                         $action = $metas[self::META_KEY_ACTION];
 
                         foreach ($criterias as $k => $c) {
                             $criteria = $c["criteria"];
-                            $from = $c["value"];
-                            $match = $c["value"];
+                            $from = (string) $c["value"];
+                            $match = (string) $c["value"];
 
                             if (!$metas["ignore_parameters"] && $requestQuery) {
                                 break;
@@ -712,8 +712,8 @@ class IRRPHelper implements IRRPConstants {
         $redirectId = (int) $redirect["id"];
         $metas = $this->dbManager->getMeta($redirectId);
         $response["redirect_metas"] = $metas;
-        $match = $redirect["match"];
-        $matchQuery = parse_url($redirect["from"], PHP_URL_QUERY);
+        $match = (string) $redirect["match"];
+        $matchQuery = (string) parse_url($redirect["from"], PHP_URL_QUERY);
 
         if ($metas["ignore_case"]) {
             if (function_exists("mb_strtolower")) {
