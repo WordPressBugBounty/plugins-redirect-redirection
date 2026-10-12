@@ -2,8 +2,8 @@
 Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
-Tested up to: 6.9.4
-Stable tag: 1.3.0
+Tested up to: 7.1.3
+Stable tag: 1.4.0
 License: GPLv3
 Requires PHP: 5.6
 
@@ -95,111 +95,16 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 
 == Changelog ==
 
-= 1.3.0 =
+= 1.4.0 =
 
-* Tested up to WordPress 6.9.4
-* [FIX] Resolve deprecation warnings by casting values to string
-* [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs
-
-= 1.2.9 =
-
-* Excluded preview links from URL checks to avoid triggering banner logic on preview pages.
-* Added support for `important` notification type and updated plain structure alerts to use it.
-* Improved banner dismiss functionality and URL matching logic for better accuracy.
-* Adjusted URL matching logic to correctly handle additional characters in URLs.
-
-= 1.2.8 =
-* Tested up to WordPress 6.9.1
-* Added “URLs with new string” option for the “Starts with” rule.
-* Improved UI/UX for better responsiveness and overall user experience.
-* Tested with WordPress WordPress 6.9.
-* Fixed minor bugs and stability issues.
-* Resolved an N+1 query issue, significantly improving performance on large sites with many redirections.
-* Disabled the “Ignore parameters” option for plain permalink structures to avoid confusion.
-
-= 1.2.7 =
-* Enqueued tooltip CSS and JS files in IRRPSettings class for enhanced user experience.
-* Removed unnecessary comments regarding tooltips in single-redirection.php layout.
-* Ensured tooltip functionality is ready for input fields in redirection settings.
-* Increase the redirections per page to 30 instead of 10
-* Tested with WordPress 6.8.1
-
-= 1.2.6 =
-* Increased URL field length from 255 to 1000 characters for more flexibility in “from” and “to” fields.
-* Ensure redirects settings are saved correctly.
-* Enhanced URL Parameters Matching.
-
-= 1.2.5 =
-* Tested with WordPress 6.7.1
-* Fixed parameters being cut off after an encoded slash.
-* Fixed loading translations too early.
-
-= 1.2.4 =
-* Tested with WordPress 6.6.2-RC1
-* Add "ask us" for regex on rules explanations
-* Fixed delete logs option where the updated value wasn't visible automatically
-* Slight UI improvements
-
-= 1.2.3 =
-* Tested with WordPress 6.6
-* Minor performance improvements 
-* Improvements for PHP 8 utilization
-* Adjusted domain validation 
-* Added pagination with "Show more" in logs
-
-= 1.2.2 =
-* [IMPROVED] Added support to non-latin characters and special characters in URL input
-* [FIX] Reverted sanitization process from v1.2.0
-* [NOTE] Tested up with WordPress v6.5 (beta)
-
-= 1.2.1 =
-* [IMPROVED] Redirections based on user language should be more accurate and even more sophisticated
-* [IMPROVED] URL verification - now it's not required to use http/https
-* [NEW] Absolute and relative path is now supported in simple rediretion text areas (/from -> /to)
-* [NEW] Added support for websites without 'www.' and destination URL with ".pdf, .png, etc."
-* [NEW] Inclusion & Exclusion rules are now available for all-urls rule
-* [FIX] Fixed issue when rule 404-s redirections got removed after page reload
-* [FIX] Fixed corner case issues with URL sanitization when non alphanumeric URLs were used
-* [REMOVED/DEPRECATED] Automatic redirect for post and pages, it has no effect for existing users
-* [NOTE] Tested up with WordPress v6.4.3
-
-= 1.2.0 =
-* [NOTE] Upgraded analyst module to latest version
-* [NOTE] Tested up to PHP v8.3
-
-= 1.1.9 =
-* [NEW] Now user can switch off or switch on 404 error & redirect logs permanently
-* [FIX] Redirects that ends with "f" will now work properly
-* [FIX] Destination values will be pre-propagated now during redirection edition
-* [FIX] False positive errors during bulk enable of redirections
-
-= 1.1.8 =
-* [NEW] Added feature "log me where I finished", redirects you after log in where you logged out
-* [NEW] Now it is possible to select multiple user roles to match redirection
-* [NEW] You can now set regex rule for referrer redirection advanced option
-* [NEW] Added redirection option for URL "ends-with"
-* [FIX] All redirects will be now trimmed by %2F encoded character (without trailing slash)
-* [FIX] Now wp-admin and wp-login is additionally protected from redirection
-* [FIX] Review module updated to latest version which prevents it to display in edit screens
-* [FIX] Adjusted rules logic, to make sure all will be checked properly for 404 redirections
-* [CHANGE] Modified default settings for our new users, ignore trailing slashes, ignore lower/upper case, ignore parameters
-* [CHANGE] Improved 404 logs, added "count" to prevent duplicates and allow to add new single click redirection
-* [CHANGE] Logs will now be removed after 7 days without update, previously 1 day
-
-= 1.1.7 =
-* Improved stability on larger sites
-* Tested with WordPress 6.4
-* Updated opt-in module
-* Improved RegExp redirections 
-* Adjusted few typos in notifications
-* [... and more ...]
-
-= previous =
-Old changelog has been removed due to WordPress limitation of 5000 characters.
+* Tested up to WordPress 7.1.3
+* [FIX] Ensure disabling request logging consistently prevents new log entries.
+* [FIX] Ensure scheduled cleanup reliably removes expired logs during WP-Cron without admin initialization warnings.
 
 == Upgrade Notice ==
 
-= 1.3.0 =
+= 1.4.0 =
 
-* [FIX] Resolve deprecation warnings by casting values to string
-* [FIX] Ensure review banner is hidden on excluded pages and sanitize URLs
+* Tested up to WordPress 7.1.3
+* [FIX] Ensure disabling request logging consistently prevents new log entries.
+* [FIX] Ensure scheduled cleanup reliably removes expired logs during WP-Cron without admin initialization warnings.

@@ -1057,13 +1057,13 @@ class IRRPHelperAjax implements IRRPConstants {
             wp_send_json_error($response);
         }
         switch ($cronLogDelete) {
-            case "never":
+            case self::LOG_DELETE_NEVER:
                 $cronLogDeleteOptionId = 0;
                 break;
-            case "older-than-a-week":
+            case self::LOG_DELETE_WEEK:
                 $cronLogDeleteOptionId = 1;
                 break;
-            case "older-than-a-month":
+            case self::LOG_DELETE_MONTH:
                 $cronLogDeleteOptionId = 2;
                 break;
             default:

@@ -31,8 +31,9 @@ class IRRPHelper implements IRRPConstants {
         $cronLogDelete = get_option(self::OPTIONS_CRON_LOG_DELETE, false);
 
         // check if option value is valid
-        if (!$cronLogDelete) return;
-        if (!$this->isDeleteOptionValid($cronLogDelete["option"])) {
+        if (!is_array($cronLogDelete) || empty($cronLogDelete["option"])) return;
+        $cronLogDeleteOption = strtolower((string) $cronLogDelete["option"]);
+        if ($cronLogDeleteOption === self::LOG_DELETE_NEVER || !$this->isDeleteOptionValid($cronLogDeleteOption)) {
             return;
         }
 
@@ -42,7 +43,7 @@ class IRRPHelper implements IRRPConstants {
         // DELETE FROM wp_irrp_logs WHERE request_timestamp < current time stamp from one week ago
         // in the first it was like this:
         // DELETE FROM wp_irrp_logs WHERE request_timestamp < current time stamp from one day ago
-        $olderThan = ($cronLogDelete["option"] === IrrPRedirection::$REDIRECTION_LOGS_DELETE[1]["option"]) ? WEEK_IN_SECONDS : MONTH_IN_SECONDS;
+        $olderThan = ($cronLogDeleteOption === self::LOG_DELETE_WEEK) ? WEEK_IN_SECONDS : MONTH_IN_SECONDS;
         $args = [
             "request_timestamp" => [
                 "timestamp" => (int) (current_time("timestamp") - $olderThan),
@@ -164,9 +165,7 @@ class IRRPHelper implements IRRPConstants {
     }
 
     public function isDeleteOptionValid($option) {
-        return !empty($option) &&
-                (strtolower($option) === IrrPRedirection::$REDIRECTION_LOGS_DELETE[1]["option"] ||
-                strtolower($option) === IrrPRedirection::$REDIRECTION_LOGS_DELETE[2]["option"]);
+        return in_array(strtolower((string) $option), [self::LOG_DELETE_WEEK, self::LOG_DELETE_MONTH], true);
     }
 
     public function buildPaginationHtml($countItems, $countPages, $currentOffset, $type = "redirection") {
@@ -314,7 +313,8 @@ class IRRPHelper implements IRRPConstants {
 	    }
 
         $response = $this->getRedirectData();
-        if (apply_filters("irrp_log_requests", true)) {
+        $loggingEnabled = (string) get_option(self::OPTIONS_LOGS_STATUS, "1") === "1";
+        if (apply_filters("irrp_log_requests", $loggingEnabled)) {
             $this->logRequest($response);
         }
 

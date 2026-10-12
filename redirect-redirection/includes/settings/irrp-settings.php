@@ -43,9 +43,6 @@ class IRRPSettings implements IRRPConstants {
         add_action("wp_ajax_irSaveSettings", [&$this, "saveSettings"]);
         add_action("wp_ajax_irLogMeWhereIFinished", [&$this, "logMeWhereIFinished"]);
         //$this->ajaxActions();
-
-        // FILTERS
-        add_filter("irrp_log_requests", [&$this, "logRequests"]);
     }
 
     public function getDefaultSettings() {
@@ -417,10 +414,6 @@ class IRRPSettings implements IRRPConstants {
             $response["message"] = __("Something went wrong, please try again", "redirect-redirection");
             wp_send_json_error($response);
         }
-    }
-
-    public function logRequests(){
-        return get_option(self::OPTIONS_LOGS_STATUS) == "1";
     }
 
     public function applyHotFixes(){

@@ -14,6 +14,11 @@ interface IRRPConstants {
     const OPTIONS_AUTO_REDIRECTS            = "irrp_auto_redirects";
     const PER_PAGE_REDIRECTIONS             = 30;
     const PER_PAGE_LOGS                     = 100;
+
+    // LOG RETENTION OPTIONS
+    const LOG_DELETE_NEVER                  = "never";
+    const LOG_DELETE_WEEK                   = "older-than-a-week";
+    const LOG_DELETE_MONTH                  = "older-than-a-month";
     
     // TABLE NAMES
     const TBL_REDIRECTIONS                  = "irrp_redirections";

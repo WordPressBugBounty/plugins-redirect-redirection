@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Redirect Redirection
  * Description: Create specific URL redirections and redirection rules super-easily on a beautiful, user-friendly interface of the Redirect Redirection plugin.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: Inisev
  * Author URI: https://inisev.com
  * Plugin URI: https://redirection.pro
@@ -21,7 +21,7 @@ define("IRRP_DIR_NAME", basename(IRRP_DIR_PATH));
 define("IRRP_CRON_DELETE_LOGS", "irrp_cron_delete_logs");
 define("IRRP_CRON_DELETE_LOGS_RECURRENCE_KEY", "irrp_custom_interval");
 define("IRRP_CRON_DELETE_LOGS_RECURRENCE", 60);
-define("IRRP_PLUGIN_VERSION", "1.3.0");
+define("IRRP_PLUGIN_VERSION", "1.4.0");
 
 /**
  * Create tables on activation.
@@ -225,15 +225,15 @@ add_action('wp_loaded', function () {
 
             self::$REDIRECTION_LOGS_DELETE = [
                 [
-                    "option" => "never",
+                    "option" => self::LOG_DELETE_NEVER,
                     "text" => __("Never", "redirect-redirection"),
                 ],
                 [
-                    "option" => "older-than-a-week",
+                    "option" => self::LOG_DELETE_WEEK,
                     "text" => __("Older than a week", "redirect-redirection")
                 ],
                 [
-                    "option" => "older-than-a-month",
+                    "option" => self::LOG_DELETE_MONTH,
                     "text" => __("Older than a month", "redirect-redirection")
                 ],
                 "selectedId" => 0,
