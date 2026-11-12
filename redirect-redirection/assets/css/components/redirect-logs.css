@@ -61,3 +61,117 @@
   cursor: pointer;
   color: #1b5551;
 }
+/* follow.it broken links banner */
+.followit-banner {
+  position: relative;
+  overflow: hidden;
+  max-width: 1170px;
+  min-height: 240px;
+  margin: 40px auto 0;
+  /* 506px / 468px of the 1170px design, kept proportional */
+  padding: 29px 40px 30px min(43.25%, 506px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ade3c7 0%, #129a4d 48%, #1b8a6c 72%, #2c88b8 100%);
+  color: #fff;
+  text-align: left;
+}
+
+.followit-banner__illustration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  max-width: 468px;
+  height: auto;
+  pointer-events: none;
+}
+
+.followit-banner__decor {
+  position: absolute;
+  pointer-events: none;
+}
+
+.followit-banner__decor--link {
+  top: 43px;
+  right: 26px;
+  opacity: 0.4;
+}
+
+.followit-banner__decor--bell {
+  top: 112px;
+  right: 72px;
+  opacity: 0.5;
+}
+
+.followit-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 541px;
+}
+
+.followit-banner__title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.followit-banner__text {
+  margin: 0 0 20px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* Extra specificity beats "body .custom-container .page a" in root.css */
+.followit-banner .followit-banner__text a.followit-banner__text-link,
+.followit-banner .followit-banner__text a.followit-banner__text-link:visited,
+.followit-banner .followit-banner__text a.followit-banner__text-link:hover,
+.followit-banner .followit-banner__text a.followit-banner__text-link:focus {
+  color: #BCEBE8;
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+
+.followit-banner__btn,
+.followit-banner__btn:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 25px 12px 16px;
+  border-radius: 8px;
+  background: #fff;
+  color: #257671;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.followit-banner__btn:hover,
+.followit-banner__btn:focus {
+  color: #1b5551;
+  box-shadow: 0 3px 13px rgba(0, 0, 0, 0.16);
+}
+
+.followit-banner__btn-icon {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+  .followit-banner {
+    min-height: 0;
+    padding: 30px;
+  }
+
+  .followit-banner__illustration,
+  .followit-banner__decor {
+    display: none;
+  }
+}

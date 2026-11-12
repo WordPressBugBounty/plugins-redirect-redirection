@@ -1,9 +1,10 @@
-<div id="analyst-install-modal" class="analyst-modal" style="display: none" analyst-plugin-id="<?php echo $pluginToInstall; ?>">
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
+<div id="analyst-install-modal" class="analyst-modal" style="display: none" analyst-plugin-id="<?php echo esc_attr( $pluginToInstall ); ?>">
 	<div class="analyst-modal-content" style="width: 450px">
 		<div class="analyst-disable-modal-mask" id="analyst-disable-install-modal-mask" style="display: none"></div>
 		<div style="display: flex">
 			<div class="analyst-install-image-block">
-				<img src="<?php echo $shieldImage; ?>"/>
+				<img src="<?php echo esc_url( $shieldImage ); ?>"/>
 			</div>
 			<div class="analyst-install-description-block">
 				<strong class="analyst-modal-header">Stay on the safe side</strong>
@@ -28,6 +29,7 @@
 		<div class="analyst-install-footer analyst-modal-def-top-padding">
 			<span class="analyst-action-text" id="analyst-permissions-toggle">Learn more</span>
 			<span id="analyst-powered-by" style="display: none;">Powered by <a href="https://sellcodes.com/blog/wordpress-feedback-system-for-plugin-creators/?utm_source=optin_screen" target="_blank" class="analyst-link">Sellcodes.com</a></span>
+			<span id="analyst-powered-by-followit" style="display: none;">Powered by <a href="https://sellcodes.com/blog/wordpress-feedback-system-for-plugin-creators/?utm_source=optin_screen" target="_blank" class="analyst-link">Sellcodes</a> and <a href="https://follow.it" target="_blank" class="analyst-link">follow.it</a>. Unsubscribe any time.</span>
 			<span class="analyst-action-text analyst-install-modal-close" id="analyst-install-skip">Skip</span>
 		</div>
 		<div id="analyst-install-error" class="analyst-modal-def-top-padding" style="display: none; text-align: center">
@@ -38,6 +40,16 @@
 
 <script type="text/javascript">
   (function ($) {
+    var followitPluginIds = ['pn8rx3lm7r4wamge']
+
+    var syncPoweredBy = function () {
+      var isVisible = $('#analyst-permissions-block').is(':visible')
+      var hasFollowit = followitPluginIds.indexOf($('#analyst-install-modal').attr('analyst-plugin-id')) !== -1
+
+      $('#analyst-powered-by').toggle(isVisible && !hasFollowit)
+      $('#analyst-powered-by-followit').toggle(isVisible && hasFollowit)
+    }
+
 
     var installPlugin = function (pluginId) {
       var $error = $('#analyst-install-error')
@@ -49,7 +61,7 @@
         method: 'POST',
         data: {
           action: 'analyst_install_' + pluginId,
-          nonce: analyst_opt_localize.nonce
+          analyst_nonce: analyst_opt_localize.analyst_nonce
         },
         success: function (data) {
 		  if (data && !data.success) {
@@ -99,16 +111,17 @@
 
 	  isVisible ? $(this).text('Close section') : $(this).text('Learn more')
 
-	  var poweredBy = $('#analyst-powered-by')
-	  isVisible ? poweredBy.show() : poweredBy.hide()
+	  syncPoweredBy()
     })
+
+	$(document).on('click', '.analyst-opt-in', syncPoweredBy)
 
 	$('#analyst-install-skip').click(function () {
     var pluginId = $('#analyst-install-modal').attr('analyst-plugin-id')
 
 	  $.post(ajaxurl, {
       action: 'analyst_skip_install_' + pluginId,
-      nonce: analyst_opt_localize.nonce
+      analyst_nonce: analyst_opt_localize.analyst_nonce
     }).done(function () {
 		  $('#analyst-install-modal').hide()
     })

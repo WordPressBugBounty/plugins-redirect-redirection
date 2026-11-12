@@ -2,8 +2,8 @@
 Contributors: Socialdude
 Tags: Redirect, Redirection, 301, 404, Redirects
 Requires at least: 4.6
-Tested up to: 7.1.3
-Stable tag: 1.4.0
+Tested up to: 7.1.4
+Stable tag: 1.4.1
 License: GPLv3
 Requires PHP: 5.6
 
@@ -95,6 +95,12 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 
 == Changelog ==
 
+= 1.4.1 =
+
+* Tested up to WordPress 7.1.4
+* [NEW] Added a follow.it broken links monitoring banner to the Redirection & 404 Logs header.
+* [IMPROVEMENT] Updated the Analyst SDK to 1.3.33 with the follow.it opt-in text.
+
 = 1.4.0 =
 
 * Tested up to WordPress 7.1.3
@@ -103,8 +109,8 @@ Vietnamese: [Đặt 301, 307, 404, một chuyển hướng khác.](https://vi.wo
 
 == Upgrade Notice ==
 
-= 1.4.0 =
+= 1.4.1 =
 
-* Tested up to WordPress 7.1.3
-* [FIX] Ensure disabling request logging consistently prevents new log entries.
-* [FIX] Ensure scheduled cleanup reliably removes expired logs during WP-Cron without admin initialization warnings.
+* Tested up to WordPress 7.1.4
+* [NEW] Added a follow.it broken links monitoring banner to the Redirection & 404 Logs header.
+* [IMPROVEMENT] Updated the Analyst SDK to 1.3.33 with the follow.it opt-in text.

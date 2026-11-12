@@ -65,4 +65,6 @@ if (!defined("ABSPATH")) {
             </span>
         </div>
     </div>
+
+    <?php include_once "followit-banner.php"; ?>
 </div>
